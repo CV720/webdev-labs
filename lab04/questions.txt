@@ -1,0 +1,4 @@
+1: SQL Alchemy allows for quick and easy communication with databases regardless of type of SQL platform using python.
+2: A model is essentially a database table that can be passed with SQL queries through SQL Alchemy.
+3:The views instantiate all the database tables that allow you to get access models using the postman
+address bar
