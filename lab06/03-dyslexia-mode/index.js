@@ -3,7 +3,19 @@
   https://www.smashingmagazine.com/2021/11/dyslexia-friendly-mode-website/
 */
 
-const make_toggle = () => {
-  document.body.classList.toggle("dyslexia");
-}
-document.querySelector("#dyslexia-toggle").addEventListener('click', make_toggle);
+const isPressed = window.localStorage.getItem('dyslexic') === 'true';
+ if(isPressed) {
+     document.body.classList.add('dyslexia');
+ }
+ // set the button to pressed if appropriate
+ const toggle = document.getElementById('dyslexia-toggle');
+ if(isPressed) {
+     toggle.setAttribute('aria-pressed', 'true');
+ }
+ // toggle dyslexia support
+ toggle.addEventListener('click', (e) => {
+     let pressed = e.target.getAttribute('aria-pressed') === 'true';
+     e.target.setAttribute('aria-pressed', String(!pressed));
+     document.body.classList.toggle('dyslexia');
+     window.localStorage.setItem('dyslexic', String(!pressed));
+ });
